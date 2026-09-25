@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="期限日付きのタスクを追加・削除し、完了状態を確認できるToDoアプリ">
+  <title>ToDoアプリ</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="todo-utils.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app" aria-labelledby="app-title">
+    <h1 id="app-title">ToDoアプリ</h1>
+    <p class="subtitle">期限日を設定して、やることを管理しましょう。</p>
+
+    <form id="task-form" class="task-form">
+      <div class="input-row">
+        <div class="task-input-field">
+          <label for="task-input" class="visually-hidden">タスクの内容</label>
+          <input
+            id="task-input"
+            name="task"
+            type="text"
+            placeholder="タスクを入力..."
+            maxlength="200"
+            autocomplete="off"
+            required
+          >
+        </div>
+
+        <div class="due-date-field">
+          <label for="due-date-input">期限日</label>
+          <input
+            id="due-date-input"
+            name="dueDate"
+            type="date"
+            aria-describedby="date-error"
+            required
+          >
+        </div>
+
+        <button class="add-button" type="submit">追加</button>
+      </div>
+
+      <p id="date-error" class="form-error" role="alert" hidden></p>
+    </form>
+
+    <ul
+      id="task-list"
+      class="task-list"
+      aria-label="タスク一覧"
+      aria-live="polite"
+    ></ul>
+
+    <p id="empty-message" class="empty-message" hidden>
+      タスクはまだありません。
+    </p>
+
+    <noscript>ToDoアプリを利用するには、JavaScriptを有効にしてください。</noscript>
+  </main>
+</body>
+</html>

@@ -1,0 +1,237 @@
+
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #1f2937;
+  background: #f3f6fb;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 640px;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgb(15 23 42 / 8%);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.subtitle {
+  margin: 8px 0 24px;
+  color: #64748b;
+}
+
+.input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.task-input-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.due-date-field {
+  display: grid;
+  gap: 4px;
+}
+
+.due-date-field label {
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+#task-input,
+#due-date-input {
+  min-width: 0;
+  padding: 12px;
+  font: inherit;
+  color: inherit;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+#task-input {
+  width: 100%;
+}
+
+#due-date-input[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+#task-input:focus,
+#due-date-input:focus {
+  border-color: #2563eb;
+  outline: 3px solid #bfdbfe;
+  outline-offset: 1px;
+}
+
+.add-button,
+.delete-button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.add-button {
+  padding: 12px 20px;
+  color: #ffffff;
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  white-space: nowrap;
+}
+
+.add-button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.form-error {
+  margin: 8px 0 0;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+.task-list {
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.task-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.task-checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.task-content {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.task-text {
+  overflow-wrap: anywhere;
+}
+
+.task-due-date {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.task-item.is-due-today .task-due-date {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.task-item.is-completed .task-text {
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.delete-button {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  color: #b91c1c;
+  background: #ffffff;
+  border: 1px solid #fecaca;
+}
+
+.delete-button:hover {
+  background: #fef2f2;
+}
+
+.add-button:focus-visible,
+.delete-button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.empty-message {
+  margin: 24px 0 0;
+  padding: 16px;
+  color: #64748b;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+    place-items: start center;
+  }
+
+  .app {
+    padding: 24px 20px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .due-date-field input,
+  .add-button {
+    width: 100%;
+  }
+
+  .task-item {
+    gap: 10px;
+  }
+}
